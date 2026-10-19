@@ -1,0 +1,92 @@
+Python
+Java
+C++
+C#
+JavaScript
+HTML
+CSS
+SQL
+R
+Scala
+PHP
+Swift
+Objective-C
+Ruby
+MATLAB
+Go
+Perl
+Kotlin
+TypeScript
+data analysis
+data visualization
+machine learning
+deep learning
+artificial intelligence
+natural language processing
+computer vision
+data mining
+data engineering
+data science
+big data
+data warehousing
+data modeling
+ETL
+cloud computing
+AWS
+Azure
+Google Cloud
+IBM Cloud
+Docker
+Kubernetes
+Terraform
+Ansible
+project management
+agile
+scrum
+kanban
+lean
+waterfall
+PRINCE2
+PMI
+team leadership
+communication
+written communication
+oral communication
+interpersonal communication
+presentation skills
+conflict resolution
+empathy
+negotiation
+active listening
+problem-solving
+critical thinking
+decision making
+creative thinking
+analytical thinking
+data-driven decision making
+time management
+organizational skills
+leadership
+teamwork
+collaboration
+mentorship
+project coordination
+attention to detail
+adaptability
+flexibility
+emotional intelligence
+self-motivation
+resilience
+customer service
+sales
+marketing
+UI/UX design
+graphic design
+video editing
+copywriting
+content creation
+SEO
+SEM
+social media management
+public speaking
+foreign languages
