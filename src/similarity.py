@@ -21,7 +21,7 @@ def build_tfidf_matrix(documents: Sequence[str]) -> np.ndarray:
     vectorizer = TfidfVectorizer(
         lowercase=True,
         ngram_range=(1, 2),
-        token_pattern=r"(?u)\b[\w+#.-]+\b",
+        token_pattern=r"(?u)(?<!\w)[\w+#.-]+(?!\w)",
     )
 
     try:
