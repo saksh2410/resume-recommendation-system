@@ -1,5 +1,7 @@
 """Tests for TF-IDF and cosine-similarity utilities."""
 
+import pytest
+
 from src.similarity import (
     build_tfidf_matrix,
     cosine_scores_against_target,
@@ -17,7 +19,7 @@ def test_similarity_ranks_closer_profile_higher() -> None:
     matrix = build_tfidf_matrix(documents)
     scores = cosine_scores_against_target(matrix)
 
-    assert scores[0] == 1.0
+    assert scores[0] == pytest.approx(1.0)
     assert scores[1] > scores[2]
 
 

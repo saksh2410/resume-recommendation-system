@@ -1,57 +1,57 @@
 # Project Architecture
 
-The refactored project is organized around a staged recommendation pipeline.
+The modular implementation follows this staged pipeline:
 
-```text
-Resume PDFs + Job Description
-          |
-          v
-       parser.py
-          |
-          v
-       skills.py
-          |
-          v
-        pso.py
-          |
-          v
-    similarity.py
-          |
-          v
-genetic_algorithm.py
-          |
-          v
-      pipeline.py
-          |
-          v
-       cli.py
-```
+    Resume PDFs + Job Description
+              |
+              v
+           parser.py
+              |
+              v
+           skills.py
+              |
+              v
+            pso.py
+              |
+              v
+        similarity.py
+              |
+              v
+    genetic_algorithm.py
+              |
+              v
+          pipeline.py
+              |
+              v
+           cli.py
 
 ## Module responsibilities
 
-### `parser.py`
+### parser.py
 Reads resume and job-description PDFs and returns plain text.
 
-### `skills.py`
-Loads the skill vocabulary and extracts candidate skills from text.
+### skills.py
+Loads a domain-specific skill vocabulary and detects known skills in resume/JD text.
 
-### `pso.py`
-Implements Binary Particle Swarm Optimization for JD-aware skill subset selection.
+### pso.py
+Implements Binary Particle Swarm Optimization. Each particle is a binary mask over skills found in one resume. Fitness rewards JD-skill recall and precision while applying a small sparsity penalty.
 
-### `similarity.py`
-Builds TF-IDF representations and computes resume/JD cosine similarities.
+### similarity.py
+Builds TF-IDF representations from the JD skill profile and PSO-selected resume skills, then computes cosine similarity.
 
-### `genetic_algorithm.py`
-Implements the course-required Genetic Algorithm for resume-subset selection.
+### genetic_algorithm.py
+Implements the course-required Genetic Algorithm. Each individual is a unique subset of resumes, and fitness is the sum of the selected resumes' similarity scores. Survivor selection is based on globally ranked parent and offspring fitness rather than the unsorted merge logic in the original notebook.
 
-### `pipeline.py`
-Coordinates all stages and exposes a single recommendation interface.
+### pipeline.py
+Coordinates parsing, skill extraction, per-resume PSO selection, similarity scoring, and GA selection.
 
-### `cli.py`
-Provides a lightweight command-line interface.
+### cli.py
+Provides a command-line interface for running the end-to-end system.
 
-## Development approach
+## Domain extension
 
-The modules are intentionally scaffolded first. Each stage will be implemented and tested independently before being integrated into the end-to-end pipeline.
+Skill vocabularies live under data/jd_skills/. The current IT vocabulary is it_skills.txt. Additional domains can be added as separate vocabulary files and passed to the CLI through --skill-vocab.
 
-The original `main.ipynb` is kept unchanged as a reference for the 2023 course implementation.
+## Historical implementation
+
+main.ipynb remains unchanged as a reference for the original 2023 CSF407 submission. The modular source files are the maintained implementation.

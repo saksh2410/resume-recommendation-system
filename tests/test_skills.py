@@ -34,8 +34,8 @@ def test_extract_known_skills_handles_boundaries() -> None:
     ]
     text = (
         "Built Python and C++ services and supported "
-        "project management. Growing teams should not "
-        "count as Go or R."
+        "project management. Growing teams and reporting "
+        "should not create short-skill false positives."
     )
 
     skills = extract_known_skills(text, vocabulary)

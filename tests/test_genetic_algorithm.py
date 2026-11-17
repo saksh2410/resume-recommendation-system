@@ -1,5 +1,7 @@
 """Tests for Genetic Algorithm resume selection."""
 
+import pytest
+
 from src.genetic_algorithm import (
     GAConfig,
     GeneticResumeSelector,
@@ -20,7 +22,7 @@ def test_ga_selects_highest_scoring_subset() -> None:
     selector.fit([0.1, 0.9, 0.3, 0.8])
 
     assert selector.get_selected_indices() == [1, 3]
-    assert selector.best_fitness_ == 1.7
+    assert selector.best_fitness_ == pytest.approx(1.7)
     assert len(
         selector.average_fitness_history_
     ) == 10
